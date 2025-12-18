@@ -122,3 +122,7 @@ cython_debug/
 # 資料
 data/input/*
 data/output/*
+
+# github-actions
+.gemini/
+gha-creds-*.json
