@@ -156,10 +156,10 @@ def process_files(input_dir: str, output_dir: str, csv_path: str):
     mapping = load_project_mapping(csv_path)
     print(f"CSVから {len(mapping)} 件の案件を読み込んだ")
     
-    # 入力ディレクトリのMDファイルを処理
+    # 入力ディレクトリのMD/PDFファイルを処理
     input_path = Path(input_dir)
-    md_files = list(input_path.glob("*.md"))
-    print(f"処理対象: {len(md_files)} 件のMDファイル")
+    md_files = list(input_path.glob("*.md")) + list(input_path.glob("*.pdf"))
+    print(f"処理対象: {len(md_files)} 件のファイル（MD/PDF）")
     
     # 統計情報
     matched = 0
@@ -201,7 +201,7 @@ def process_files(input_dir: str, output_dir: str, csv_path: str):
 def main():
     # パスの設定
     base_dir = Path(__file__).parent
-    input_dir = base_dir.parent / "11_構造調整済みMD"
+    input_dir = base_dir.parent / "10_PJKB取込用資料(名前補正済み)" / "まとめ"
     output_dir = base_dir / "data" / "output"
     csv_path = base_dir / "data" / "input" / "クライテリア管理台帳.csv"
     
